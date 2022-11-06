@@ -1,12 +1,12 @@
 #Prints the header for final list
 def print_header
-  puts "The students of Villains Academy\n--------------"
+  puts "The students of Villains Academy\n--------------".center(10)
 end
 
 #(Exercise 1) Prints each individual student using each loop and with index 
 def prints(students)
   students.each_with_index do |student, idx|
-    puts "#{idx +1}. #{student[:name]} (#{student[:cohort]} cohort)"
+    puts "#{idx +1}. #{student[:name]} (#{student[:cohort]} cohort)".center(10)
   end
 end
 
@@ -21,7 +21,7 @@ end
 
 #Prints the footer for final list with count
 def print_footer(students)
-  puts "Overall, we have #{students.count} great students"
+  puts "Overall, we have #{students.count} great students".center(10)
 end
 
 #Takes user input of students 
@@ -38,6 +38,7 @@ def input_students
   students
 end
 
+#(exercise 5) gathers more information about students
 def input_students_with_details
   puts "Please enter name"
   puts "to finish, just hit return twice"

@@ -38,6 +38,29 @@ def input_students
   students
 end
 
+def input_students_with_details
+  puts "Please enter name"
+  puts "to finish, just hit return twice"
+  students = []
+  name = gets.chomp
+  while !name.empty? do
+    puts "Please enter height in cm"
+    puts "skip with return twice"
+    height = gets.chomp
+    height = "N/A" if height.empty?
+    puts "Please enter place of birth"
+    puts "skip with return twice"
+    birthplace = gets.chomp
+    birthplace = "N/A" if birthplace.empty?
+    students << {name: name, cohort: :november, height: height, birthplace: birthplace}
+    puts "Please enter name"
+    puts "to finish, just hit return twice"
+    name = gets.chomp
+  end
+  students
+end
+
+
 #(Exercise 2) Prints students beginning with given letter
 def print_beginning_with(students)
   puts "Student's names beginning with which letter should be printed?"
@@ -65,7 +88,7 @@ def print_shorter_than_n_characters(students)
 end
 
 #for running the program
-students = input_students
+students = input_students_with_details
 print_header
 prints(students)
 print_footer(students)

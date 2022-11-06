@@ -111,12 +111,23 @@ def print_shorter_than_n_characters(students)
   end
 end
 
+#(exercise 8) puts the students but grouped by cohort
+def print_by_cohort(students)
+  students = students.sort_by! { |x| x["cohort".to_sym] }
+  students.each_with_index do |student, idx|
+    puts "#{idx +1}. #{student[:name]} (#{student[:cohort]} cohort)".center(10)
+  end
+end
+
+
 #for running the program
 #students = input_students
 students = input_student_and_cohort
 #students = input_students_with_details
 print_header
-prints(students)
+#prints(students)
+print_by_cohort(students)
 print_footer(students)
 #print_beginning_with(students)
 #print_shorter_than_n_characters(students)
+

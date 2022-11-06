@@ -21,7 +21,11 @@ end
 
 #Prints the footer for final list with count
 def print_footer(students)
-  students.count == 1 ? (puts "Overall, we have 1 great student") : (puts "Overall, we have #{students.count} great students")
+  if !students.empty?
+    students.count == 1 ? (puts "Overall, we have 1 great student") : (puts "Overall, we have #{students.count} great students")
+  else
+    puts "What gives?"
+  end
 end
 
 #Takes user input of students 
@@ -115,10 +119,14 @@ end
 
 #(exercise 8) puts the students but grouped by cohort
 def print_by_cohort(students)
-  students = students.sort_by! { |x| x["cohort".to_sym] }
-  students.each_with_index do |student, idx|
-    puts "#{idx +1}. #{student[:name]} (#{student[:cohort]} cohort)".center(10)
-  end
+  if !students.empty?
+    students = students.sort_by! { |x| x["cohort".to_sym] }
+    students.each_with_index do |student, idx|
+      puts "#{idx +1}. #{student[:name]} (#{student[:cohort]} cohort)".center(10)
+    end
+  else
+    puts "List empty"
+  end 
 end
 
 def alternative_to_chomp
@@ -131,7 +139,7 @@ def alternative_to_chomp
   end
 end
 
-alternative_to_chomp
+#alternative_to_chomp
 #for running the program
 #students = input_students
 students = input_student_and_cohort

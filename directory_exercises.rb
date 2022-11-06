@@ -61,6 +61,29 @@ def input_students_with_details
   students
 end
 
+#(exercise 7) takes student names and cohorts and points out spelling mistakes on potential cohorts
+def input_student_and_cohort
+  months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+  puts "Please enter name of student"
+  puts "to finish, just hit return twice"
+  students = []
+  name = gets.chomp
+  while !name.empty? do
+    puts "please enter cohort"
+    puts "skip with return twice"
+    cohort = gets.chomp.downcase
+    cohort = "november" if cohort.empty?
+    if !months.include?(cohort)
+      puts "bad spelling! try again"
+      cohort = gets.chomp
+    end
+    students << {name: name, cohort: cohort.to_sym}
+    puts "Please enter name of student"
+    puts "to finish, just hit return twice"
+    name = gets.chomp
+  end
+  students
+end
 
 #(Exercise 2) Prints students beginning with given letter
 def print_beginning_with(students)
@@ -89,9 +112,11 @@ def print_shorter_than_n_characters(students)
 end
 
 #for running the program
-students = input_students_with_details
+#students = input_students
+students = input_student_and_cohort
+#students = input_students_with_details
 print_header
 prints(students)
 print_footer(students)
-print_beginning_with(students)
-print_shorter_than_n_characters(students)
+#print_beginning_with(students)
+#print_shorter_than_n_characters(students)

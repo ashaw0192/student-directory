@@ -19,7 +19,7 @@ def input_students
   puts "To finish, just hit return twice"
   name = STDIN.gets.chomp
   while !name.empty? do
-    @students << {name: name, cohort: :november}
+    add_to_students_array(name, "november")
     puts "Now we have #{@students.count} students"
     name = gets.chomp
   end
@@ -79,22 +79,26 @@ def load_students(filename = "students.csv")
   file = File.open(filename, "r")
   file.readlines.each do |line|
   name, cohort = line.chomp.split(',')
-    @students << {name: name, cohort: cohort.to_sym}
+  add_to_students_array(name, cohort)
   end
   file.close
 end
 
 def try_load_students
-    filename = ARGV.first 
-    return if filename.nil?
-    if File.exist?(filename) 
-      load_students(filename)
-       puts "Loaded #{@students.count} from #{filename}"
-    else 
-      puts "Sorry, #{filename} doesn't exist."
-      exit 
-    end
+  filename = ARGV.first 
+  return if filename.nil?
+  if File.exist?(filename) 
+    load_students(filename)
+    puts "Loaded #{@students.count} from #{filename}"
+  else 
+    puts "Sorry, #{filename} doesn't exist."
+    exit 
   end
+end
+
+def add_to_students_array(name, cohort)
+  @students << {name: name, cohort: cohort.to_sym}
+end
 
 try_load_students
 interactive_menu

@@ -21,7 +21,7 @@ end
 
 #Prints the footer for final list with count
 def print_footer(students)
-  puts "Overall, we have #{students.count} great students".center(10)
+  students.count == 1 ? (puts "Overall, we have 1 great student") : (puts "Overall, we have #{students.count} great students")
 end
 
 #Takes user input of students 
@@ -62,6 +62,7 @@ def input_students_with_details
 end
 
 #(exercise 7) takes student names and cohorts and points out spelling mistakes on potential cohorts
+#(exercise 8) singular and plural students implemented
 def input_student_and_cohort
   months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
   puts "Please enter name of student"
@@ -78,6 +79,7 @@ def input_student_and_cohort
       cohort = gets.chomp
     end
     students << {name: name, cohort: cohort.to_sym}
+    students.count == 1 ? (puts "Now we have 1 student") : (puts "Now we have #{students.count} students")
     puts "Please enter name of student"
     puts "to finish, just hit return twice"
     name = gets.chomp

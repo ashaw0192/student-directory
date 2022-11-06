@@ -53,10 +53,13 @@ def process_after_task_selected(selection)
     when "2"
       show_students
     when "3"
+      puts "Students saved"
       save_students
     when "4"
+      puts "Students Loaded if applicable"
       load_students
     when "9"
+      puts "Goodbye"
       exit 
     else
       puts "I don't know what you meant, try again"

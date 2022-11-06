@@ -5,9 +5,7 @@ def print_header
 end
 
 def print_student_list(students)
-  students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort)"
-  end
+  students.each { |student| puts "#{student[:name]} (#{student[:cohort]} cohort)" }
 end
 
 def print_footer(students)
@@ -27,10 +25,10 @@ def input_students
 end
 
 def interactive_menu
-  File.open(".gitignore", "w") << "students.csv"
+  #File.open(".gitignore", "w") << "students.csv"
   loop do
     print_menu
-    process(STDIN.gets.chomp)
+    process_after_task_selected(STDIN.gets.chomp)
   end
 end
 
@@ -48,7 +46,7 @@ def show_students
   print_footer(@students)
 end
 
-def process(selection)
+def process_after_task_selected(selection)
   case selection
     when "1"
       @students = input_students

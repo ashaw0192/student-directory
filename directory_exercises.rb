@@ -25,7 +25,17 @@ def input_students
   students
 end
 
+def print_beginning_with(students)
+  puts "Student's names beginning with which letter should be printed?"
+  letter = gets.chomp.upcase
+  students.each do |student|
+    name_string = student[:name]
+    puts student if name_string[0] == letter
+  end
+end
+
 students = input_students
 print_header
 prints(students)
 print_footer(students)
+print_beginning_with(students)

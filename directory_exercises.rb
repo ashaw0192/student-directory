@@ -121,7 +121,17 @@ def print_by_cohort(students)
   end
 end
 
+def alternative_to_chomp
+  puts "Enter string"
+  string = gets.rstrip
+  while !string.empty?
+    puts string
+    puts "enter string"
+    string = gets.rstrip
+  end
+end
 
+alternative_to_chomp
 #for running the program
 #students = input_students
 students = input_student_and_cohort
@@ -133,4 +143,3 @@ print_footer(students)
 #print_beginning_with(students)
 #print_shorter_than_n_characters(students)
 
-#commit for solution 9 rename
